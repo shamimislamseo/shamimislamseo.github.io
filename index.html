@@ -1,222 +1,397 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shamim Islam | AI-First SEO Strategist</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg-color: #02000d; --neon-blue: #00f3ff; --neon-purple: #9d00ff;
-            --glass-bg: rgba(255, 255, 255, 0.03); --glass-border: rgba(0, 243, 255, 0.2);
-        }
-        body { background-color: var(--bg-color); color: white; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shamim Islam | AI-First SEO Strategist</title>
 
-        /* Canvas Background */
-        #spaceCanvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; }
+<!-- SEO Meta -->
+<meta name="description" content="Shamim Islam is an AI-First SEO Strategist specializing in Technical SEO, PPC, GA4 Analytics and AI Search Optimization.">
+<meta name="keywords" content="Shamim Islam SEO, AI SEO Expert, Technical SEO, PPC Expert, GA4 Specialist">
+<meta name="author" content="Shamim Islam">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://yourdomain.com/">
 
-        /* Navbar & Glitch Logo */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: rgba(2, 0, 13, 0.7); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); position: fixed; width: 100%; top: 0; z-index: 100; }
-        
-        .glitch-logo { font-family: 'Orbitron', sans-serif; font-size: 26px; font-weight: 900; color: white; position: relative; cursor: pointer; }
-        .glitch-logo::before, .glitch-logo::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: -1; }
-        .glitch-logo::before { left: 2px; text-shadow: -2px 0 red; animation: glitch 2s infinite linear alternate-reverse; clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%); }
-        .glitch-logo::after { left: -2px; text-shadow: -2px 0 var(--neon-blue); animation: glitch 3s infinite linear alternate-reverse; clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); }
-        .glitch-logo span { color: var(--neon-purple); }
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shamim Islam | AI-First SEO Strategist">
+<meta property="og:description" content="Technical SEO, PPC & AI Search Optimization Expert.">
+<meta property="og:image" content="https://yourdomain.com/preview.jpg">
+<meta property="og:url" content="https://yourdomain.com/">
 
-        @keyframes glitch { 0% { transform: translate(0); } 20% { transform: translate(-2px, 2px); } 40% { transform: translate(-2px, -2px); } 60% { transform: translate(2px, 2px); } 80% { transform: translate(2px, -2px); } 100% { transform: translate(0); } }
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shamim Islam | AI-First SEO Strategist">
+<meta name="twitter:description" content="Technical SEO, PPC & AI Search Optimization Expert.">
+<meta name="twitter:image" content="https://yourdomain.com/preview.jpg">
 
-        /* Hero Section */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; position: relative; z-index: 10; }
-        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 5rem; color: white; text-shadow: 0 0 25px var(--neon-blue); margin-bottom: 10px; }
-        
-        /* Auto Typing Text */
-        .typing-text { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: var(--neon-purple); min-height: 40px; margin-bottom: 20px; text-shadow: 0 0 10px var(--neon-purple); }
-        .cursor { display: inline-block; width: 3px; background-color: var(--neon-blue); margin-left: 5px; animation: blink 0.8s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 
-        .btn-glow { margin-top: 30px; padding: 15px 40px; font-size: 1.1rem; font-family: 'Orbitron', sans-serif; color: var(--neon-blue); background: transparent; border: 1px solid var(--neon-blue); border-radius: 5px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 0 15px rgba(0, 243, 255, 0.2); }
-        .btn-glow:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 30px var(--neon-blue); }
+<!-- Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Shamim Islam",
+  "url": "https://yourdomain.com",
+  "jobTitle": "AI-First SEO Strategist",
+  "sameAs": [
+    "https://facebook.com/yourprofile",
+    "https://linkedin.com/in/yourprofile"
+  ],
+  "knowsAbout": [
+    "SEO",
+    "Technical SEO",
+    "PPC",
+    "GA4",
+    "AI Search Optimization"
+  ]
+}
+</script>
 
-        /* 3D Cards Section */
-        .features { display: flex; justify-content: center; gap: 35px; padding: 50px; flex-wrap: wrap; z-index: 10; position: relative; perspective: 1000px; }
-        .card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 15px; padding: 40px 30px; width: 320px; text-align: center; transition: transform 0.1s ease-out, box-shadow 0.1s; transform-style: preserve-3d; cursor: crosshair; }
-        .card h3 { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); font-size: 1.4rem; transform: translateZ(30px); margin-bottom: 15px; }
-        .card p { color: #d1d1d1; font-size: 1rem; transform: translateZ(20px); }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        /* Counters */
-        .counters { display: flex; justify-content: center; gap: 50px; padding: 50px; background: rgba(0, 0, 0, 0.5); border-top: 1px solid var(--neon-purple); border-bottom: 1px solid var(--neon-purple); }
-        .counter-box { text-align: center; }
-        .counter-box h2 { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: var(--neon-blue); text-shadow: 0 0 15px var(--neon-blue); }
-        .counter-box p { color: #aaa; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
+:root{
+--bg:#02000d;
+--blue:#00f3ff;
+--purple:#9d00ff;
+--glass:rgba(255,255,255,.03);
+--border:rgba(0,243,255,.2);
+}
 
-        /* Hacker Terminal */
-        .terminal { position: fixed; bottom: 20px; right: 20px; width: 300px; height: 150px; background: rgba(0, 0, 0, 0.8); border: 1px solid #0f0; border-radius: 5px; padding: 10px; font-family: monospace; color: #0f0; font-size: 0.85rem; overflow: hidden; z-index: 999; box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); }
-        .terminal p { margin: 5px 0; opacity: 0; animation: fadeUp 0.5s forwards; }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+body{
+font-family:'Space Grotesk',sans-serif;
+background:var(--bg);
+color:#fff;
+overflow-x:hidden;
+}
 
-    </style>
+canvas{
+position:fixed;
+inset:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 40px;
+background:rgba(0,0,0,.5);
+backdrop-filter:blur(15px);
+border-bottom:1px solid var(--border);
+z-index:100;
+}
+
+.logo{
+font-family:'Orbitron',sans-serif;
+font-size:28px;
+font-weight:900;
+color:var(--blue);
+text-shadow:0 0 15px var(--blue);
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-family:'Orbitron',sans-serif;
+font-size:5rem;
+text-shadow:0 0 25px var(--blue);
+}
+
+.typing{
+font-size:1.6rem;
+color:var(--purple);
+margin:20px 0;
+min-height:40px;
+}
+
+.hero p{
+color:#ccc;
+font-size:1.1rem;
+}
+
+.btn{
+margin-top:30px;
+padding:15px 35px;
+background:transparent;
+color:var(--blue);
+border:1px solid var(--blue);
+font-family:'Orbitron',sans-serif;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+background:var(--blue);
+color:#000;
+box-shadow:0 0 25px var(--blue);
+}
+
+.features{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+padding:80px 20px;
+content-visibility:auto;
+}
+
+.card{
+width:320px;
+padding:35px;
+background:var(--glass);
+backdrop-filter:blur(20px);
+border:1px solid var(--border);
+border-radius:20px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,243,255,.3);
+}
+
+.card h3{
+font-family:'Orbitron',sans-serif;
+margin-bottom:15px;
+color:var(--blue);
+}
+
+.counter-section{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+padding:70px 20px;
+background:rgba(0,0,0,.5);
+}
+
+.counter h2{
+font-size:3rem;
+font-family:'Orbitron',sans-serif;
+color:var(--blue);
+}
+
+.counter p{
+color:#aaa;
+}
+
+.about{
+padding:80px 20px;
+max-width:1000px;
+margin:auto;
+text-align:center;
+}
+
+.about h2{
+font-family:'Orbitron',sans-serif;
+margin-bottom:20px;
+color:var(--purple);
+}
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid var(--border);
+color:#888;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:2.8rem;
+}
+
+.typing{
+font-size:1rem;
+}
+
+nav{
+padding:15px 20px;
+}
+
+.card{
+width:100%;
+}
+}
+</style>
 </head>
 <body>
 
-    <!-- Space/Network Canvas -->
-    <canvas id="spaceCanvas"></canvas>
+<canvas id="bg"></canvas>
 
-    <!-- Navbar with Glitch -->
-    <nav>
-        <div class="glitch-logo" data-text="Shamim.AI">Shamim<span>.AI</span></div>
-    </nav>
+<header>
+<nav>
+<div class="logo">Shamim.AI</div>
+</nav>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Shamim Islam</h1>
-        <div>
-            <span class="typing-text" id="type-text"></span><span class="cursor">&nbsp;</span>
-        </div>
-        <p>Full-Stack SEO, PPC & GA4 Expert</p>
-        <button class="btn-glow hover-sound">Deploy Strategy</button>
-    </section>
+<main>
+<section class="hero">
+<h1>Shamim Islam</h1>
+<div class="typing" id="typing"></div>
+<p>Full-Stack SEO, PPC & GA4 Expert</p>
+<button class="btn" aria-label="Deploy SEO Strategy">Deploy Strategy</button>
+</section>
 
-    <!-- Counters Section -->
-    <section class="counters" id="counter-section">
-        <div class="counter-box">
-            <h2 data-target="10" class="count">0</h2>
-            <p>M+ Traffic Generated</p>
-        </div>
-        <div class="counter-box">
-            <h2 data-target="500" class="count">0</h2>
-            <p>K+ Ad Spend (ROI)</p>
-        </div>
-        <div class="counter-box">
-            <h2 data-target="99" class="count">0</h2>
-            <p>% AI Accuracy</p>
-        </div>
-    </section>
+<section class="counter-section">
+<div class="counter">
+<h2 class="count" data-target="10">0</h2>
+<p>M+ Traffic Generated</p>
+</div>
 
-    <!-- 3D Tilt Cards -->
-    <section class="features">
-        <div class="card hover-sound">
-            <h3>AI Search Matrix</h3>
-            <p>Optimize for Google, ChatGPT, and Gemini using next-gen prompt engineering.</p>
-        </div>
-        <div class="card hover-sound">
-            <h3>Full-Stack SEO</h3>
-            <p>Merge deep Technical SEO with precision PPC to multiply digital growth.</p>
-        </div>
-        <div class="card hover-sound">
-            <h3>GA4 Neuro-Tracking</h3>
-            <p>Master analytics. Leverage machine learning to decode user behavior.</p>
-        </div>
-    </section>
+<div class="counter">
+<h2 class="count" data-target="500">0</h2>
+<p>K+ Ad Spend ROI</p>
+</div>
 
-    <!-- Hacker Terminal -->
-    <div class="terminal" id="hacker-terminal"></div>
+<div class="counter">
+<h2 class="count" data-target="99">0</h2>
+<p>% AI Accuracy</p>
+</div>
+</section>
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // 1. Web Audio API (Futuristic Hover Sound without external files)
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        function playSciFiBeep() {
-            if(audioCtx.state === 'suspended') audioCtx.resume();
-            const oscillator = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-            oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
-            oscillator.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.1);
-            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
-            oscillator.connect(gainNode); gainNode.connect(audioCtx.destination);
-            oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.1);
-        }
-        document.querySelectorAll('.hover-sound').forEach(el => el.addEventListener('mouseenter', playSciFiBeep));
+<section class="features">
+<div class="card">
+<h3>AI Search Matrix</h3>
+<p>Optimize for Google, ChatGPT, Gemini and AI-powered search systems.</p>
+</div>
 
-        // 2. Auto Typing Effect
-        const words = ["Dominate Google Search...", "Hack AI Algorithms...", "Scale PPC Campaigns..."];
-        let i = 0, j = 0, isDeleting = false;
-        function typeEffect() {
-            const currentWord = words[i];
-            document.getElementById("type-text").innerText = currentWord.substring(0, j);
-            if (!isDeleting && j < currentWord.length) { j++; setTimeout(typeEffect, 100); }
-            else if (isDeleting && j > 0) { j--; setTimeout(typeEffect, 50); }
-            else { isDeleting = !isDeleting; if (!isDeleting) i = (i + 1) % words.length; setTimeout(typeEffect, 1000); }
-        }
-        typeEffect();
+<div class="card">
+<h3>Full-Stack SEO</h3>
+<p>Advanced Technical SEO, PPC and growth-focused digital strategies.</p>
+</div>
 
-        // 3. Network Constellation Particles (Canvas)
-        const canvas = document.getElementById("spaceCanvas");
-        const ctx = canvas.getContext("2d");
-        let w = canvas.width = window.innerWidth, h = canvas.height = window.innerHeight;
-        let particles = [], mouse = { x: w/2, y: h/2 };
-        
-        window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
-        window.addEventListener('resize', () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
+<div class="card">
+<h3>GA4 Neuro Tracking</h3>
+<p>Track behavior and analytics using machine learning insights.</p>
+</div>
+</section>
 
-        for (let i = 0; i < 100; i++) particles.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random()-0.5)*1, vy: (Math.random()-0.5)*1 });
+<section class="about">
+<h2>About Shamim Islam</h2>
+<p>
+Shamim Islam is an AI-First SEO Strategist helping brands dominate Google Search, AI Search Engines, PPC Campaigns and analytics-driven growth.
+</p>
+</section>
+</main>
 
-        function drawParticles() {
-            ctx.clearRect(0, 0, w, h);
-            ctx.fillStyle = "rgba(0, 243, 255, 0.5)";
-            for (let i = 0; i < particles.length; i++) {
-                let p = particles[i]; p.x += p.vx; p.y += p.vy;
-                if (p.x < 0 || p.x > w) p.vx *= -1; if (p.y < 0 || p.y > h) p.vy *= -1;
-                ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fill();
+<footer>
+© 2026 Shamim Islam — AI SEO Portfolio
+</footer>
 
-                // Connect to mouse
-                let dx = mouse.x - p.x, dy = mouse.y - p.y;
-                let dist = Math.sqrt(dx*dx + dy*dy);
-                if (dist < 150) { ctx.beginPath(); ctx.strokeStyle = `rgba(157, 0, 255, ${1 - dist/150})`; ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
-            }
-            requestAnimationFrame(drawParticles);
-        }
-        drawParticles();
+<script>
+const words=[
+"Dominate Google Search",
+"Scale PPC Campaigns",
+"Hack AI Algorithms"
+];
 
-        // 4. 3D Tilt Cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                let rect = card.getBoundingClientRect();
-                let x = e.clientX - rect.left - rect.width/2;
-                let y = e.clientY - rect.top - rect.height/2;
-                card.style.transform = `rotateY(${x / 10}deg) rotateX(${-y / 10}deg) scale(1.05)`;
-                card.style.boxShadow = `${-x/5}px ${-y/5}px 20px rgba(0, 243, 255, 0.3)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
-                card.style.boxShadow = `0 0 0 rgba(0,0,0,0)`;
-            });
-        });
+let i=0;
+let j=0;
+let del=false;
 
-        // 5. Number Counters
-        const counters = document.querySelectorAll('.count');
-        const countObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    let target = +entry.target.getAttribute('data-target');
-                    let count = 0, inc = target / 100;
-                    let updateCount = setInterval(() => {
-                        count += inc;
-                        entry.target.innerText = Math.ceil(count);
-                        if(count >= target) { entry.target.innerText = target; clearInterval(updateCount); }
-                    }, 20);
-                    countObserver.unobserve(entry.target);
-                }
-            });
-        });
-        counters.forEach(c => countObserver.observe(c));
+function type(){
+const el=document.getElementById('typing');
+const word=words[i];
 
-        // 6. Hacker Terminal Logs
-        const terminal = document.getElementById("hacker-terminal");
-        const logs = [ "> Initializing AI Core...", "> Bypassing Google Algo...", "> Fetching Backlink Data: SUCCESS", "> Injecting SEO Schema...", "> GA4 Tracking: ACTIVE", "> Connection Secure." ];
-        function printLog() {
-            let p = document.createElement("p");
-            p.innerText = logs[Math.floor(Math.random() * logs.length)];
-            terminal.appendChild(p);
-            if(terminal.children.length > 5) terminal.removeChild(terminal.firstChild);
-            setTimeout(printLog, Math.random() * 2000 + 1000);
-        }
-        printLog();
-    </script>
+el.innerHTML=word.substring(0,j)+"|";
+
+if(!del && j<word.length){
+j++;
+setTimeout(type,100);
+}
+else if(del && j>0){
+j--;
+setTimeout(type,50);
+}
+else{
+del=!del;
+if(!del)i=(i+1)%words.length;
+setTimeout(type,1000);
+}
+}
+
+type();
+
+const counters=document.querySelectorAll('.count');
+
+counters.forEach(counter=>{
+const update=()=>{
+const target=+counter.getAttribute('data-target');
+const count=+counter.innerText;
+const inc=target/100;
+
+if(count<target){
+counter.innerText=Math.ceil(count+inc);
+setTimeout(update,20);
+}else{
+counter.innerText=target;
+}
+};
+
+update();
+});
+
+const canvas=document.getElementById('bg');
+const ctx=canvas.getContext('2d');
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+const particles=[];
+const total=window.innerWidth<768?40:80;
+
+for(let i=0;i<total;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+vx:(Math.random()-.5),
+vy:(Math.random()-.5)
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+p.x+=p.vx;
+p.y+=p.vy;
+
+if(p.x<0||p.x>canvas.width)p.vx*=-1;
+if(p.y<0||p.y>canvas.height)p.vy*=-1;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,2,0,Math.PI*2);
+ctx.fillStyle='rgba(0,243,255,.5)';
+ctx.fill();
+});
+
+requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
 </body>
 </html>
+```
