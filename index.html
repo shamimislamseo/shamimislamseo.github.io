@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shamim Islam | AI-First SEO Strategist</title>
+    
+    <!-- Futuristic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset & Variables */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-color: #02000d;
+            --neon-blue: #00f3ff;
+            --neon-purple: #9d00ff;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(0, 243, 255, 0.2);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        /* --- PRELOADER (Loading Effect) --- */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        .loader-circle {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(0, 243, 255, 0.1);
+            border-top: 4px solid var(--neon-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 0 30px var(--neon-blue);
+        }
+
+        #preloader p {
+            margin-top: 20px;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-blue);
+            letter-spacing: 3px;
+            animation: blink 1s infinite;
+        }
+
+        /* --- MOUSE GLOW LIGHTING --- */
+        #cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 243, 255, 0.15) 0%, transparent 60%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: 0.05s ease-out;
+        }
+
+        /* Canvas Background */
+        #spaceCanvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; }
+
+        /* Perspective Grid Floor */
+        .grid-floor {
+            position: fixed;
+            bottom: 0; left: 0; width: 100vw; height: 30vh;
+            background: linear-gradient(transparent 0%, rgba(157, 0, 255, 0.2) 100%);
+            background-image: linear-gradient(var(--neon-purple) 1px, transparent 1px), linear-gradient(90deg, var(--neon-purple) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: perspective(500px) rotateX(60deg);
+            z-index: -1;
+            opacity: 0.3;
+            animation: gridMove 5s linear infinite;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 50px; background: rgba(2, 0, 13, 0.7);
+            backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border);
+            position: fixed; width: 100%; top: 0; z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif; font-size: 26px; font-weight: 900;
+            color: white; text-shadow: 0 0 15px var(--neon-blue); cursor: pointer;
+        }
+        .logo span { color: var(--neon-purple); text-shadow: 0 0 15px var(--neon-purple); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 0 20px; position: relative; z-index: 10;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif; font-size: 5rem;
+            color: white; text-shadow: 0 0 25px var(--neon-blue), 0 0 5px white;
+            margin-bottom: 10px; letter-spacing: 2px;
+        }
+
+        .hero h2 {
+            font-family: 'Orbitron', sans-serif; font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-blue));
+            background-size: 200% auto;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: gradientMove 3s linear infinite;
+        }
+
+        /* --- COMING SOON BADGE --- */
+        .coming-soon {
+            display: inline-block; margin-top: 20px; padding: 8px 25px;
+            border: 1px solid var(--neon-purple); border-radius: 30px;
+            font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: bold;
+            color: var(--neon-purple); text-transform: uppercase; letter-spacing: 3px;
+            background: rgba(157, 0, 255, 0.1); backdrop-filter: blur(5px);
+            box-shadow: 0 0 20px rgba(157, 0, 255, 0.4);
+            animation: hologram 2s infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.2rem; color: #c4c4c4; max-width: 800px;
+            margin: 30px 0; line-height: 1.6; letter-spacing: 1px;
+        }
+
+        /* --- ADVANCED ANIMATED BUTTON --- */
+        .btn-glow {
+            position: relative; padding: 16px 50px; font-size: 1.1rem;
+            font-family: 'Orbitron', sans-serif; color: white;
+            background: transparent; border: none; border-radius: 40px;
+            cursor: pointer; overflow: hidden; z-index: 1;
+            text-transform: uppercase; letter-spacing: 2px;
+            transition: 0.3s ease-in-out;
+        }
+
+        /* Running Border Effect */
+        .btn-glow::before {
+            content: ''; position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, var(--neon-blue));
+            animation: rotateBorder 2s linear infinite; z-index: -2;
+        }
+
+        /* Button Inner Background */
+        .btn-glow::after {
+            content: ''; position: absolute; inset: 3px;
+            background: var(--bg-color); border-radius: 40px; z-index: -1;
+            transition: 0.3s;
+        }
+
+        .btn-glow:hover { transform: scale(1.05); color: #000; box-shadow: 0 0 40px var(--neon-blue); }
+        .btn-glow:hover::after { background: var(--neon-blue); }
+
+        /* Features Section */
+        .features {
+            display: flex; justify-content: center; gap: 35px; padding: 50px;
+            flex-wrap: wrap; position: relative; z-index: 10;
+        }
+
+        .card {
+            background: var(--glass-bg); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-top: 1px solid var(--neon-blue);
+            border-radius: 15px; padding: 40px 30px; width: 350px; text-align: center;
+            transition: 0.4s; position: relative; overflow: hidden;
+        }
+
+        .card::before {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 2px; background: var(--neon-blue);
+            transition: 0.5s;
+        }
+
+        .card:hover { transform: translateY(-15px); box-shadow: 0 15px 30px rgba(0, 243, 255, 0.2); }
+        .card:hover::before { left: 0; }
+        .card h3 { font-family: 'Orbitron', sans-serif; margin-bottom: 15px; color: var(--neon-blue); font-size: 1.4rem; }
+        .card p { color: #d1d1d1; font-size: 1rem; line-height: 1.6; }
+
+        /* Animations */
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        @keyframes gradientMove { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+        @keyframes rotateBorder { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 0 40px; } }
+        @keyframes hologram { 0% { opacity: 0.8; box-shadow: 0 0 10px var(--neon-purple); } 100% { opacity: 1; box-shadow: 0 0 30px var(--neon-blue); border-color: var(--neon-blue); color: var(--neon-blue); } }
+
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-circle"></div>
+        <p>INITIALIZING AI-SEO PROTOCOLS...</p>
+    </div>
+
+    <!-- Mouse Tracking Glow -->
+    <div id="cursor-glow"></div>
+
+    <!-- Canvas Background & Grid -->
+    <canvas id="spaceCanvas"></canvas>
+    <div class="grid-floor"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Shamim<span>.AI</span></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Shamim Islam</h1>
+        <h2>AI-First SEO Strategist & Digital Marketer</h2>
+        <div class="coming-soon">🚀 AI Portfolio Coming Soon</div>
+        <p>Dominate Google & AI Search | Full-Stack SEO, PPC & GA4 Expert</p>
+        <button class="btn-glow">Deploy Strategy</button>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="card">
+            <h3>AI Search Matrix</h3>
+            <p>Optimize for Google, ChatGPT, Gemini, and Perplexity using next-gen AI prompt engineering.</p>
+        </div>
+        <div class="card">
+            <h3>Full-Stack SEO & PPC</h3>
+            <p>Merge deep Technical SEO with high-converting precision PPC to multiply digital growth.</p>
+        </div>
+        <div class="card">
+            <h3>GA4 Neuro-Tracking</h3>
+            <p>Master analytics. Leverage GA4 machine learning to decode user behavior at lightspeed.</p>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => { preloader.style.visibility = 'hidden'; }, 800);
+            }, 2000); // Loader shows for 2 seconds
+        });
+
+        // Mouse Glow Logic
+        const cursorGlow = document.getElementById('cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+
+        // Space Canvas (Stars)
+        const canvas = document.getElementById("spaceCanvas");
+        const ctx = canvas.getContext("2d");
+        let width, height, stars;
+
+        function initStars() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            stars = [];
+            for (let i = 0; i < 250; i++) {
+                stars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 1.5,
+                    vx: Math.floor(Math.random() * 50) - 25,
+                    vy: Math.floor(Math.random() * 50) - 25
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.globalCompositeOperation = "lighter";
+            for (let i = 0; i < stars.length; i++) {
+                let s = stars[i];
+                ctx.fillStyle = "#ffffff";
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
+                ctx.fill();
+                s.x += s.vx / 80; // Slower stars
+                s.y += s.vy / 80;
+                if (s.x < 0 || s.x > width) s.x = Math.random() * width;
+                if (s.y < 0 || s.y > height) s.y = Math.random() * height;
+            }
+            requestAnimationFrame(drawStars);
+        }
+
+        window.addEventListener('resize', initStars);
+        initStars(); drawStars();
+    </script>
+</body>
+</html>
