@@ -1,166 +1,147 @@
-<!-- COMING SOON OVERLAY -->
-<div class="coming-overlay">
-    <div class="coming-content">
+from pathlib import Path
+import zipfile, textwrap, os
 
-        <h1 class="glow-text">🚀 FULL WEBSITE COMING SOON</h1>
+root = Path("/mnt/data/shamim-islam-seo-site")
+root.mkdir(exist_ok=True)
 
-        <!-- NEW NAME -->
-        <h2 class="brand">Shamim Islam SEO</h2>
+files = {
+"index.html": r'''<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shamim Islam SEO | AI-First SEO Strategist & Digital Marketer</title>
+  <meta name="description" content="Shamim Islam SEO — AI-First SEO Strategist and Digital Marketer focused on SEO, PPC, GA4, content strategy and Google & AI Search.">
+  <meta name="author" content="Shamim Islam">
+  <meta property="og:title" content="Shamim Islam SEO">
+  <meta property="og:description" content="AI-First SEO Strategist & Digital Marketer">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://shamimislamseo.github.io/">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Shamim Islam",
+    "url":"https://shamimislamseo.github.io/",
+    "jobTitle":"SEO Strategist & Digital Marketer",
+    "knowsAbout":["SEO","AI Search","PPC","GA4","Content Strategy"]
+  }
+  </script>
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#home">SHAMIM ISLAM <span>SEO</span></a>
+  <button class="menu" aria-label="Open menu">☰</button>
+  <nav>
+    <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a>
+    <a href="#case-studies">Case Studies</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+  </nav>
+</header>
 
-        <p>
-            A next-generation AI-powered SEO experience is currently under development.
-        </p>
+<main>
+<section id="home" class="hero">
+  <div class="glow">✦</div>
+  <p class="eyebrow">AI-FIRST SEO • DIGITAL MARKETING • SEARCH</p>
+  <h1>Shamim Islam <span>SEO</span></h1>
+  <h2>AI-First SEO Strategist &amp; Digital Marketer</h2>
+  <p class="lead">Building search visibility across Google and emerging AI-powered search experiences through technical SEO, content strategy, analytics and digital marketing.</p>
+  <div class="buttons"><a class="btn" href="#services">Explore Services</a><a class="btn ghost" href="#contact">Contact</a></div>
+</section>
 
-        <!-- TAGLINE -->
-        <p class="tagline">
-            AI-First SEO Strategist & Digital Marketer | Dominate Google & AI Search | Full-Stack SEO, PPC & GA4 Expert
-        </p>
+<section id="about" class="section">
+  <p class="eyebrow">ABOUT</p><h2>Search strategy with a modern approach</h2>
+  <p>Shamim Islam SEO is a personal professional brand focused on search visibility, technical SEO, content strategy, PPC and GA4 analytics.</p>
+  <div class="facts"><div><b>SEO</b><small>Technical &amp; On-page</small></div><div><b>AI Search</b><small>Modern search visibility</small></div><div><b>Analytics</b><small>GA4 &amp; measurement</small></div></div>
+</section>
 
-        <span>
-            Preparing something futuristic, intelligent and powerful.
-        </span>
+<section id="services" class="section alt">
+  <p class="eyebrow">SERVICES</p><h2>What I work on</h2>
+  <div class="grid">
+    <article><span>01</span><h3>Technical SEO</h3><p>Crawlability, indexing, site structure, performance and technical audits.</p></article>
+    <article><span>02</span><h3>Content Strategy</h3><p>Search-focused content planning, topical coverage and optimization.</p></article>
+    <article><span>03</span><h3>AI Search</h3><p>Strategies for visibility across evolving AI-assisted search experiences.</p></article>
+    <article><span>04</span><h3>PPC &amp; GA4</h3><p>Campaign measurement, analytics setup and performance-focused reporting.</p></article>
+  </div>
+</section>
 
-        <!-- BUTTON -->
-        <a href="#" class="cta-btn">Enter Preview</a>
+<section id="projects" class="section">
+  <p class="eyebrow">PROJECTS</p><h2>Selected work</h2>
+  <div class="grid">
+    <article class="project"><div class="tag">SEO</div><h3>SEO Portfolio</h3><p>Personal SEO and digital marketing portfolio.</p><a href="https://shamimislamseo.netlify.app/" target="_blank" rel="noopener">View project →</a></article>
+    <article class="project"><div class="tag">WEB</div><h3>GitHub Projects</h3><p>Web projects, experiments and technical work.</p><a href="https://github.com/shamimislamseo" target="_blank" rel="noopener">Open GitHub →</a></article>
+    <article class="project"><div class="tag">BLOG</div><h3>SEO Blog</h3><p>Articles about SEO, search and digital marketing.</p><a href="https://shamimislamseo.blogspot.com/" target="_blank" rel="noopener">Read blog →</a></article>
+  </div>
+</section>
 
-        <div class="loader"></div>
+<section id="case-studies" class="section alt">
+  <p class="eyebrow">CASE STUDIES</p><h2>SEO methodology</h2>
+  <div class="steps"><div><b>01</b><h3>Audit</h3><p>Understand technical health, search visibility and content gaps.</p></div>
+  <div><b>02</b><h3>Strategy</h3><p>Prioritize opportunities around intent, topics and measurable goals.</p></div>
+  <div><b>03</b><h3>Measure</h3><p>Track organic performance and analytics to guide improvements.</p></div></div>
+  <p class="note">Add real client/project metrics here when you have permission to publish them.</p>
+</section>
 
-    </div>
-</div>
+<section id="blog" class="section">
+  <p class="eyebrow">BLOG</p><h2>Latest SEO topics</h2>
+  <div class="grid">
+    <article><h3>Google &amp; AI Search</h3><p>Notes and practical ideas for modern search visibility.</p><a href="https://shamimislamseo.blogspot.com/" target="_blank" rel="noopener">Read articles →</a></article>
+    <article><h3>Technical SEO</h3><p>Site architecture, indexing, performance and structured data.</p></article>
+    <article><h3>Digital Analytics</h3><p>GA4 measurement and data-informed SEO decisions.</p></article>
+  </div>
+</section>
 
-<style>
-.coming-overlay{
-position:fixed;
-inset:0;
-width:100%;
-height:100%;
-background:rgba(2,0,13,.92);
-backdrop-filter:blur(10px);
-z-index:99999;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-overflow:hidden;
+<section id="contact" class="section contact">
+  <p class="eyebrow">CONTACT</p><h2>Let's connect</h2>
+  <p>For professional enquiries, use the links below.</p>
+  <div class="buttons">
+    <a class="btn" href="https://github.com/shamimislamseo" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn ghost" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="year"></span> Shamim Islam SEO · AI-First SEO &amp; Digital Marketing</footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const menu=document.querySelector('.menu'), nav=document.querySelector('.nav nav');
+menu.addEventListener('click',()=>nav.classList.toggle('open'));
+</script>
+</body>
+</html>''',
+
+"style.css": r''':root{--bg:#080d18;--panel:#0e1727;--text:#e9f7ff;--muted:#aab9c8;--cyan:#00e5ff;--purple:#b52cff;--line:#203047}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% 0,#13273a 0,#080d18 42%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.7}.nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:18px 6%;background:rgba(8,13,24,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.brand{color:white;text-decoration:none;font-weight:800;letter-spacing:1px}.brand span{color:var(--cyan)}nav{display:flex;gap:22px}nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--cyan)}.menu{display:none;background:none;border:0;color:white;font-size:25px}
+.hero{min-height:88vh;display:grid;place-content:center;text-align:center;padding:70px 7%;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:500px;height:500px;background:var(--cyan);filter:blur(180px);opacity:.09;border-radius:50%;left:50%;top:20%;transform:translate(-50%,-50%)}.glow{font-size:50px;color:var(--cyan);text-shadow:0 0 35px var(--cyan)}.eyebrow{color:var(--purple);letter-spacing:4px;font-size:12px;font-weight:700}.hero h1{font-size:clamp(46px,8vw,88px);line-height:1.05;margin:10px 0;text-shadow:0 0 28px rgba(0,229,255,.25)}.hero h1 span{color:var(--cyan)}.hero h2{font-size:clamp(20px,3vw,30px);margin:12px 0;color:#d8e7f1}.lead{max-width:850px;margin:0 auto;color:var(--muted);font-size:18px}.buttons{display:flex;justify-content:center;gap:14px;margin-top:30px;flex-wrap:wrap}.btn{display:inline-block;padding:11px 22px;border:1px solid var(--cyan);border-radius:30px;color:var(--cyan);text-decoration:none;font-weight:700;box-shadow:0 0 18px rgba(0,229,255,.12)}.btn:hover{background:var(--cyan);color:#071019}.btn.ghost{border-color:var(--purple);color:#d98cff}
+.section{padding:95px 8%;max-width:1200px;margin:auto}.section h2{font-size:40px;margin:0 0 18px}.section>p:not(.eyebrow){color:var(--muted);max-width:850px}.alt{max-width:none;background:rgba(255,255,255,.018);border-top:1px solid rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.03)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}.grid article,.steps>div{background:linear-gradient(145deg,rgba(19,37,57,.8),rgba(10,17,29,.9));border:1px solid var(--line);border-radius:18px;padding:28px;transition:.25s}.grid article:hover{transform:translateY(-5px);border-color:#35506e}.grid h3{font-size:22px;margin:8px 0}.grid p,.steps p{color:var(--muted)}.grid a{color:var(--cyan);text-decoration:none}.grid article>span,.tag{color:var(--purple);font-weight:800;letter-spacing:2px}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:35px}.facts div{padding:22px;border-left:2px solid var(--cyan);background:var(--panel)}.facts b,.facts small{display:block}.facts b{font-size:25px}.facts small{color:var(--muted)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}.steps b{font-size:30px;color:var(--cyan)}.note{margin-top:25px!important;font-size:13px}.contact{text-align:center}.contact>p{margin-left:auto;margin-right:auto}footer{text-align:center;padding:30px;color:#8292a4;border-top:1px solid var(--line);font-size:13px}
+@media(max-width:800px){nav{display:none;position:absolute;top:67px;left:0;right:0;background:#0a111e;padding:20px;flex-direction:column}.nav nav.open{display:flex}.menu{display:block}.grid,.steps,.facts{grid-template-columns:1fr}.section{padding:70px 6%}.hero{min-height:82vh;padding:55px 6%}.hero h1{font-size:48px}}
+''',
+
+"README.md": r'''# Shamim Islam SEO — GitHub Pages
+
+A modern personal SEO portfolio website.
+
+## Publish on GitHub Pages
+
+1. Create a GitHub repository named `shamimislamseo.github.io`.
+2. Upload `index.html`, `style.css`, and `README.md`.
+3. Go to **Settings → Pages**.
+4. Under **Build and deployment**, select **Deploy from a branch**.
+5. Select `main` and `/ (root)`, then Save.
+6. Open: `https://shamimislamseo.github.io/`
+
+Before publishing, replace the LinkedIn URL in `index.html` with your actual profile URL.
+'''
 }
 
-/* animated background shine */
-.coming-overlay::before{
-content:'';
-position:absolute;
-width:200%;
-height:200%;
-background:linear-gradient(45deg, transparent, rgba(0,243,255,.06), transparent);
-animation:shine 8s linear infinite;
-}
+for name, content in files.items():
+    (root/name).write_text(content, encoding="utf-8")
 
-@keyframes shine{
-0%{transform:translateX(-100%) rotate(25deg);}
-100%{transform:translateX(100%) rotate(25deg);}
-}
+zip_path = Path("/mnt/data/shamim-islam-seo-github-pages.zip")
+with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
+    for p in root.iterdir():
+        z.write(p, p.name)
 
-.coming-content{
-position:relative;
-z-index:2;
-max-width:800px;
-}
+print(f"Website project created: {zip_path}")
+print("Files:", ", ".join(files.keys()))
 
-/* main title glow */
-.glow-text{
-font-family:'Orbitron',sans-serif;
-font-size:4rem;
-color:#00f3ff;
-text-shadow:0 0 15px #00f3ff, 0 0 30px #00f3ff;
-animation:pulse 2s infinite alternate;
-}
-
-@keyframes pulse{
-from{transform:scale(1); opacity:.8;}
-to{transform:scale(1.05); opacity:1;}
-}
-
-/* brand name typing effect */
-.brand{
-font-size:1.8rem;
-color:#9d00ff;
-margin:10px 0 20px;
-overflow:hidden;
-white-space:nowrap;
-border-right:2px solid #9d00ff;
-width:0;
-animation:typing 3s steps(20,end) forwards, blink .8s infinite;
-}
-
-@keyframes typing{
-from{width:0;}
-to{width:100%;}
-}
-
-@keyframes blink{
-50%{border-color:transparent;}
-}
-
-.coming-content p{
-font-size:1.2rem;
-color:#d9d9d9;
-line-height:1.7;
-margin-bottom:15px;
-}
-
-.tagline{
-font-size:1rem;
-color:#00f3ff;
-margin:10px 0 25px;
-opacity:.9;
-}
-
-.coming-content span{
-display:block;
-font-size:.95rem;
-letter-spacing:3px;
-text-transform:uppercase;
-color:#9d00ff;
-margin-bottom:25px;
-}
-
-/* BUTTON */
-.cta-btn{
-display:inline-block;
-padding:12px 28px;
-margin-bottom:30px;
-background:transparent;
-border:2px solid #00f3ff;
-color:#00f3ff;
-text-decoration:none;
-font-weight:bold;
-border-radius:30px;
-transition:.3s;
-box-shadow:0 0 15px rgba(0,243,255,.3);
-}
-
-.cta-btn:hover{
-background:#00f3ff;
-color:#000;
-transform:scale(1.05);
-}
-
-.loader{
-width:80px;
-height:80px;
-margin:auto;
-border:4px solid rgba(255,255,255,.1);
-border-top:4px solid #00f3ff;
-border-radius:50%;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-100%{transform:rotate(360deg);}
-}
-
-@media(max-width:768px){
-.glow-text{font-size:2.2rem;}
-.brand{font-size:1.3rem;}
-}
-</style>
