@@ -33,3 +33,26 @@ body:after{content:"";position:fixed;inset:-20%;pointer-events:none;z-index:-1;o
 @keyframes cardIn{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:600px){.filters{gap:8px}.filter{padding:9px 13px;font-size:12px}.blog-tools input{font-size:16px}}
 @media(prefers-reduced-motion:reduce){body:after,.hero h1,.hero .eyebrow,.hero h2,.hero .lead,.hero .buttons,.hero:before,#posts article{animation:none!important}}
+
+/* Homepage cinematic refresh */
+.hero{isolation:isolate;background:radial-gradient(ellipse at 50% 45%,rgba(10,26,48,.3),transparent 60%)}
+.hero:after{right:auto;left:50%;bottom:-190px;transform:translateX(-50%);width:min(900px,95vw);height:300px;filter:blur(100px);background:linear-gradient(90deg,rgba(0,229,255,.12),rgba(181,44,255,.12))}
+.hero h1{letter-spacing:-2.5px;text-wrap:balance;text-shadow:0 0 32px rgba(0,229,255,.18),0 12px 60px rgba(0,0,0,.45)}
+.hero h1 span{background:linear-gradient(100deg,#00e5ff 10%,#8defff 45%,#c77aff 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{max-width:760px}
+.hero-badge{width:max-content;max-width:100%;margin:0 auto 18px;padding:7px 13px;border:1px solid rgba(0,229,255,.22);border-radius:30px;background:rgba(5,16,29,.62);color:#b8dbe8;font-size:10px;letter-spacing:1.5px;font-weight:800;animation:riseIn .7s both}
+.status-dot{display:inline-block;width:7px;height:7px;margin-right:8px;border-radius:50%;background:#43f5b4;box-shadow:0 0 12px #43f5b4;animation:statusPulse 2s ease-in-out infinite}
+.hero-orbit{position:absolute;z-index:-1;left:50%;top:47%;border:1px solid rgba(0,229,255,.12);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%) rotate(calc(var(--mx,0)*5deg));}
+.orbit-one{width:min(72vw,760px);height:min(72vw,760px);animation:orbitSpin 48s linear infinite}
+.orbit-two{width:min(58vw,610px);height:min(58vw,610px);border-color:rgba(181,44,255,.13);border-style:dashed;animation:orbitSpin 60s linear infinite reverse}
+.hero-stats{display:flex;justify-content:center;gap:clamp(24px,5vw,70px);margin:44px auto 0;padding-top:20px;border-top:1px solid rgba(150,200,230,.13);width:min(540px,100%)}
+.hero-stats div{display:grid;gap:1px}.hero-stats strong{font-size:20px;letter-spacing:1px;color:#eafaff}.hero-stats span{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.section{scroll-margin-top:85px}
+.grid article{position:relative;overflow:hidden}
+.grid article:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(circle at 0 0,rgba(0,229,255,.09),transparent 55%);transition:opacity .35s}
+.grid article:hover:after{opacity:1}
+.section .buttons{margin-top:32px}
+@keyframes orbitSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes statusPulse{50%{opacity:.45;box-shadow:0 0 3px #43f5b4}}
+@media(max-width:800px){.orbit-one{width:95vw;height:95vw}.orbit-two{width:78vw;height:78vw}.hero-stats{gap:26px}.hero-badge{font-size:9px;letter-spacing:1px}}
+@media(prefers-reduced-motion:reduce){.orbit-one,.orbit-two,.status-dot{animation:none!important}}
