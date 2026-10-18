@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="google-site-verification" content="83art4-FNSVSx7OHyl4aTm2tDBfhGfmmEOHCPIMgnic">
+  <meta name="google-adsense-account" content="ca-pub-7573361603657066">
 
   <title>Shamim Islam SEO | AI-First SEO Strategist & Digital Marketer</title>
   <meta name="description" content="Shamim Islam SEO — AI-First SEO Strategist and Digital Marketer focused on SEO, PPC, GA4, content strategy and Google & AI Search.">
@@ -15,6 +16,8 @@
   <meta property="og:description" content="AI-First SEO Strategist & Digital Marketer">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shamimislamseo.github.io/">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7573361603657066" crossorigin="anonymous"></script>
 
   <script type="application/ld+json">
   {
@@ -37,7 +40,7 @@
 <body>
 <header class="nav">
   <a class="brand" href="#home">SHAMIM ISLAM <span>SEO</span></a>
-  <button class="menu" aria-label="Open menu">☰</button>
+  <button class="menu" aria-label="Open menu" aria-expanded="false">☰</button>
   <nav>
     <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a>
     <a href="#case-studies">Case Studies</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
@@ -45,7 +48,7 @@
 </header>
 
 <main>
-<section id="home" class="hero">
+<section id="home" class="hero reveal">
   <div class="glow">✦</div>
   <p class="eyebrow">AI-FIRST SEO • DIGITAL MARKETING • SEARCH</p>
   <h1>Shamim Islam <span>SEO</span></h1>
@@ -54,13 +57,13 @@
   <div class="buttons"><a class="btn" href="#services">Explore Services</a><a class="btn ghost" href="#contact">Contact</a></div>
 </section>
 
-<section id="about" class="section">
+<section id="about" class="section reveal">
   <p class="eyebrow">ABOUT</p><h2>Search strategy with a modern approach</h2>
   <p>Shamim Islam SEO is a personal professional brand focused on search visibility, technical SEO, content strategy, PPC and GA4 analytics.</p>
   <div class="facts"><div><b>SEO</b><small>Technical &amp; On-page</small></div><div><b>AI Search</b><small>Modern search visibility</small></div><div><b>Analytics</b><small>GA4 &amp; measurement</small></div></div>
 </section>
 
-<section id="services" class="section alt">
+<section id="services" class="section alt reveal">
   <p class="eyebrow">SERVICES</p><h2>What I work on</h2>
   <div class="grid">
     <article><span>01</span><h3>Technical SEO</h3><p>Crawlability, indexing, site structure, performance and technical audits.</p></article>
@@ -70,7 +73,7 @@
   </div>
 </section>
 
-<section id="projects" class="section">
+<section id="projects" class="section reveal">
   <p class="eyebrow">PROJECTS</p><h2>Selected work</h2>
   <div class="grid">
     <article class="project"><div class="tag">SEO</div><h3>SEO Portfolio</h3><p>Personal SEO and digital marketing portfolio.</p><a href="https://shamimislamseo.netlify.app/" target="_blank" rel="noopener">View project →</a></article>
@@ -79,7 +82,7 @@
   </div>
 </section>
 
-<section id="case-studies" class="section alt">
+<section id="case-studies" class="section alt reveal">
   <p class="eyebrow">CASE STUDIES</p><h2>SEO methodology</h2>
   <div class="steps"><div><b>01</b><h3>Audit</h3><p>Understand technical health, search visibility and content gaps.</p></div>
   <div><b>02</b><h3>Strategy</h3><p>Prioritize opportunities around intent, topics and measurable goals.</p></div>
@@ -87,7 +90,7 @@
   <p class="note">Add real client/project metrics here when you have permission to publish them.</p>
 </section>
 
-<section id="blog" class="section">
+<section id="blog" class="section reveal">
   <p class="eyebrow">BLOG</p><h2>Latest SEO topics</h2>
   <div class="grid">
     <article><h3>Google &amp; AI Search</h3><p>Notes and practical ideas for modern search visibility.</p><a href="https://shamimislamseo.blogspot.com/" target="_blank" rel="noopener">Read articles →</a></article>
@@ -96,7 +99,7 @@
   </div>
 </section>
 
-<section id="contact" class="section contact">
+<section id="contact" class="section contact reveal">
   <p class="eyebrow">CONTACT</p><h2>Let's connect</h2>
   <p>For professional enquiries, use the links below.</p>
   <div class="buttons">
@@ -108,9 +111,24 @@
 
 <footer>© <span id="year"></span> Shamim Islam SEO · AI-First SEO &amp; Digital Marketing</footer>
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
-const menu=document.querySelector('.menu'), nav=document.querySelector('.nav nav');
-menu.addEventListener('click',()=>nav.classList.toggle('open'));
+const year=document.getElementById('year');
+year.textContent=new Date().getFullYear();
+const menu=document.querySelector('.menu');
+const nav=document.querySelector('.nav nav');
+menu.addEventListener('click',()=>{
+  const open=nav.classList.toggle('open');
+  menu.setAttribute('aria-expanded',String(open));
+});
+nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+  nav.classList.remove('open');
+  menu.setAttribute('aria-expanded','false');
+}));
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
