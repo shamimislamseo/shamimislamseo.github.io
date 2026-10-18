@@ -43,18 +43,18 @@
   <button class="menu" aria-label="Open menu" aria-expanded="false">☰</button>
   <nav>
     <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a>
-    <a href="#case-studies">Case Studies</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+    <a href="#case-studies">Case Studies</a><a href="blog/">SEO Blog</a><a href="#contact">Contact</a>
   </nav>
 </header>
 
 <main>
 <section id="home" class="hero reveal">
-  <div class="glow">✦</div>
+  <div class="hero-orbit orbit-one" aria-hidden="true"></div><div class="hero-orbit orbit-two" aria-hidden="true"></div><div class="glow">✦</div><div class="hero-badge"><span class="status-dot"></span> OPEN TO SEO PROJECTS & COLLABORATIONS</div>
   <p class="eyebrow">AI-FIRST SEO • DIGITAL MARKETING • SEARCH</p>
   <h1>Shamim Islam <span>SEO</span></h1>
   <h2>AI-First SEO Strategist &amp; Digital Marketer</h2>
   <p class="lead">Building search visibility across Google and emerging AI-powered search experiences through technical SEO, content strategy, analytics and digital marketing.</p>
-  <div class="buttons"><a class="btn" href="#services">Explore Services</a><a class="btn ghost" href="#contact">Contact</a></div>
+  <div class="buttons"><a class="btn" href="#services">Explore Services <span>↗</span></a><a class="btn ghost" href="blog/">Explore SEO Blog</a></div><div class="hero-stats"><div><strong>SEO</strong><span>Strategy</span></div><div><strong>AI</strong><span>Search-ready</span></div><div><strong>Data</strong><span>Driven</span></div></div>
 </section>
 
 <section id="about" class="section reveal">
@@ -128,7 +128,7 @@ const observer=new IntersectionObserver((entries)=>{
     if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
   });
 },{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));\n// Keep content visible if IntersectionObserver is unavailable.\nif(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));}\n// Subtle pointer depth on the hero, disabled for touch and reduced-motion users.\nconst hero=document.querySelector('.hero');if(hero&&matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)').matches){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5).toFixed(3));hero.style.setProperty('--my',((e.clientY-r.top)/r.height-.5).toFixed(3));});hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--mx',0);hero.style.setProperty('--my',0);});}
 </script>
 </body>
 </html>
